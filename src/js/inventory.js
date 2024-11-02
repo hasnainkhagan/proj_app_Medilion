@@ -63,9 +63,8 @@ function renderTable() {
                     <td>${item.cgsCode}</td>
                     <td>${item.qtyReceived}</td>
                     <td>${item.sign}</td>
-                    <td><button onclick="openEditPopup(${
-                      start + index
-                    })">Edit</button></td>
+                    <td><button onclick="openEditPopup(${start + index
+      })">Edit</button></td>
                 `;
     inventoryBody.appendChild(row);
   });
@@ -178,68 +177,3 @@ function renderPagination() {
     pagination.appendChild(pageButton);
   }
 }
-
-// DB SETUP
-
-// var Datastore = require("nedb");
-
-// var inventory = (db.inventory = new Datastore({
-//   filename: "db/inventory.db",
-//   autoload: true,
-// }));
-
-// async function addProduct(data) {
-//   const newProduct = data;
-
-//   await inventory.findOne(
-//     { productName: newProduct.productName },
-//     async (err, product) => {
-//       if (err) {
-//         await inventory.insert({ ...newProduct });
-//       } else {
-//         console.error(
-//           "This product is already exists!, try adding a different one."
-//         );
-//       }
-//     }
-//   );
-// }
-
-// async function findProducts(page, limit = 2) {
-//   await inventory
-//     .find({})
-//     .sort({ createdAt: -1 })
-//     .limit(limit)
-//     .skip(limit * (page - 1))
-//     .exec((err, products) => {
-//       if (err) {
-//         console.error("Find error:", err);
-//       } else {
-//         inventory.count({}, (err, totalCount) => {
-//           if (err) {
-//             console.error("Find error:", err);
-//           } else {
-//             return {
-//               products,
-//               totalPages: Math.ceil(totalCount / limit),
-//             };
-//           }
-//         });
-//       }
-//     });
-// }
-
-// async function searchProducts(query) {
-//   //  will make it later
-// }
-
-// addProduct({
-//   ProductName: "item1",
-//   Category: "clothes",
-//   Brand: "zara",
-//   PackSize: "XL",
-//   LotBatchNo: 12,
-//   ExpiryDate: "1-12-24",
-//   createdAt: new Date(Date.now()).toISOString(),
-// });
-// // findProducts(3);
