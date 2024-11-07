@@ -221,33 +221,54 @@ th {
 }
 
 button {
-  padding: 6px;
+  padding: 10px;
+  font-size: 1em;
   border-radius: .75em;
   border: 2px solid var(--line-clr);
   background: transparent;
   color: #343B19;
   text-transform: uppercase;
   cursor: pointer;
+  transition: all .3s ease;
+}
+
+button:hover {
+  background: #c4e053;
 }
 
 input[type="text"],
 input[type="date"] {
   width: 100%;
-  padding: 8px;
+  padding: 10px;
+  font-size: 1em;
   margin: 5px 0;
   border: 2px solid var(--line-clr);
   background: transparent;
   border-radius: .75em;
 }
 
+#qtyReceived {
+  padding: 10px;
+  font-size: 1em;
+  border: 2px solid var(--line-clr);
+  background: transparent;
+  border-radius: .75em;
+  margin: 6px 0;
+}
+
+#editQtyReceived {
+  padding: 10px;
+  font-size: 1em;
+  border: 2px solid var(--line-clr);
+  background: transparent;
+  border-radius: .75em;
+  margin: 6px 0;
+}
+
 .pagination {
   display: flex;
   justify-content: center;
-  margin-top: 10px;
-}
-
-.pagination button {
-  margin: 0 5px;
+  margin: 0 2em;
 }
 
 .addDelete {
@@ -261,90 +282,30 @@ input[type="date"] {
   align-items: center;
   justify-content: flex-start;
   gap: .5em;
-  width: 40em !important;
+  width: 50em !important;
   margin-top: 1em;
 }
 
-/* ---RESPONSIVE MENU--- */
+button i {
+  width: 1em;
+  height: 1em;
+  color: #343B19;
+}
 
-@media(max-width: 800px) {
-  body {
-    grid-template-columns: 1fr;
-  }
+.close {
+  border: 2px solid #610000;
+}
 
-  main {
-    padding: 2em 1em 60px 1em;
-  }
+.close:hover {
+  background: #ff9191;
+}
 
-  .container {
-    border: none;
-    padding: 0;
-  }
+.close i {
+  color: #610000;
+}
 
-  #sidebar {
-    height: 60px;
-    width: 100%;
-    border-right: none;
-    border-top: 2px solid var(--line-clr);
-    padding: 0;
-    position: fixed;
-    top: unset;
-    bottom: 0;
-
-    >ul {
-      padding: 0;
-      display: grid;
-      grid-auto-columns: 60px;
-      grid-auto-flow: column;
-      align-items: center;
-      overflow-x: scroll;
-    }
-
-    ul li {
-      height: 100%;
-    }
-
-    ul a,
-    ul .dropdown-btn {
-      width: 60px;
-      height: 60px;
-      padding: 0;
-      border-radius: 0;
-      justify-content: center;
-    }
-
-    ul li span,
-    ul li:first-child,
-    .dropdown-btn svg:last-child {
-      display: none;
-    }
-
-    ul li .sub-menu.show {
-      position: fixed;
-      bottom: 60px;
-      left: 0;
-      box-sizing: border-box;
-      height: 60px;
-      width: 100%;
-      background-color: var(--hover-clr);
-      border-top: 2px solid var(--line-clr);
-      display: flex;
-      justify-content: center;
-
-      >div {
-        overflow-x: auto;
-      }
-
-      li {
-        display: inline-flex;
-      }
-
-      a {
-        box-sizing: border-box;
-        padding: 1em;
-        width: auto;
-        justify-content: center;
-      }
-    }
-  }
+.add {
+  gap: 5px;
+  display: flex;
+  align-items: center;
 }

@@ -181,8 +181,12 @@
             onkeyup="searchTable()"
           />
           <div class="addDelete">
-            <button onclick="openAddPopup()">Add Item</button>
-            <button onclick="deleteSelected()">Delete Selected</button>
+            <button onclick="openAddPopup()" class="add">
+              <i class="fa-solid fa-plus"></i> Add Item
+            </button>
+            <button onclick="deleteSelected()" class="close">
+              <i class="fa-solid fa-trash"></i>
+            </button>
           </div>
         </div>
       </div>
@@ -190,11 +194,11 @@
       <table id="inventoryTable">
         <thead>
           <tr>
-            <th>Select</th>
             <th>Inw. #</th>
             <th>Inw. Date</th>
             <th>Inv. No.</th>
             <th>Sup. Name</th>
+            <th>Prod. Name.</th>
             <th>Prod. Desc.</th>
             <th>Orig.</th>
             <th>Cat.</th>
@@ -206,6 +210,7 @@
             <th>CGS</th>
             <th>Qty Rec.</th>
             <th>Sig.</th>
+            <th>Created At</th>
             <th>Actions</th>
           </tr>
         </thead>
@@ -215,7 +220,7 @@
       <div class="pagination" id="pagination"></div>
 
       <div class="overlay" id="overlay"></div>
-      <!-- ADDING ITMES POPUP -->
+      <!-- ADDING ITEMS POPUP -->
       <div class="popup" id="addPopup">
         <h3>ADD ITEM</h3>
         <form id="addForm">
@@ -239,6 +244,12 @@
             placeholder="Product Description"
             required
           />
+          <input
+            type="text"
+            id="productName"
+            placeholder="Product Name"
+            required
+          />
           <input type="text" id="origin" placeholder="Origin" required />
           <input type="text" id="category" placeholder="Category" required />
           <input type="text" id="brand" placeholder="Brand" required />
@@ -255,10 +266,12 @@
           />
           <input type="text" id="sign" placeholder="Sign" required />
           <button type="button" onclick="addItem()">Save</button>
-          <button type="button" onclick="closePopup('addPopup')">Close</button>
+          <button type="button" onclick="closePopup('addPopup')" class="close">
+            <i class="fa-solid fa-x"></i>
+          </button>
         </form>
       </div>
-      <!-- DELETING ITEMS POPUP -->
+      <!-- EDITING ITEMS POPUP -->
       <div class="popup" id="editPopup">
         <h3>EDIT ITEM</h3>
         <form id="editForm">
@@ -289,6 +302,12 @@
           />
           <input
             type="text"
+            id="editProductName"
+            placeholder="Product Name"
+            required
+          />
+          <input
+            type="text"
             id="editProductDesc"
             placeholder="Product Description"
             required
@@ -314,7 +333,9 @@
           />
           <input type="text" id="editSign" placeholder="Sign" required />
           <button type="button" onclick="saveEdit()">Save</button>
-          <button type="button" onclick="closePopup('editPopup')">Close</button>
+          <button type="button" onclick="closePopup('editPopup')" class="close">
+            <i class="fa-solid fa-x"></i>
+          </button>
         </form>
       </div>
     </main>
